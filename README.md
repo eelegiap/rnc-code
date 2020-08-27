@@ -4,4 +4,4 @@ I converted the Inflection SQL database to CSV, and then split the CSV into 3 CS
 
 The ```rnc_form_scrape.py``` searches on each word in the csv, queries the RNC, and returns document and word occurrences. It takes one argument, an input CSV like ```inflection_split_0.csv```. 
 
-I also included ```split_inflection_csv.ipynb```, the code I used to split the CSV into 3 parts.
+I also included ```split_inflection_csv.ipynb```, the code I used to split the original CSV into 3 parts.
