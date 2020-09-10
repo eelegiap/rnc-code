@@ -11,7 +11,7 @@ input_path = sys.argv[1]
 
 # check to see which word you left off on (rename output path if needed)
 i = input_path[-5]
-output_path = f'rnc_scrape_output{i}.csv'
+output_path = f'output/rnc_scrape_output{i}.csv'
 output_columns = ['form','docs','occurrences']
 
 if os.stat(output_path).st_size == 0:
