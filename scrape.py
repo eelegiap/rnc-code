@@ -39,14 +39,14 @@ def make_request(form, retries=3):
         print(e)
         print("connection error - wait 60 seconds and then retry the request")
         time.sleep(60)
-        r = requests.get(RNC_URL.format(form=form))
+        return make_request(form, retries=retries-1)
 
     if r.status_code != 200:
         print(r.status_code, form)
     if r.status_code == 429: 
-        wait_time = int(10 + 60 * (1/retries))
+        wait_time = int(10 + 60 * (1/retries)) if retries > 0 else 90
         print(f"too many requests -- wait {wait_time} seconds before retrying ({retries} left)")
-        time.sleep(10  + 60 * (1/retries))
+        time.sleep(wait_time)
         if retries > 0:
             return make_request(form, retries=retries-1)
     return r.content
